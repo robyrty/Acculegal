@@ -1,0 +1,63 @@
+<ion-app >
+
+
+  <ion-menu side ="start" contentId="m1">
+    <ion-header>
+      <ion-toolbar class="back5">
+        <ion-title>
+          <ion-img style="width:60%; height:60%;" src="assets/img/logo-dark.png" alt="Ionic logo"></ion-img>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <div>
+        <h4 class="mrg">{{user2}}</h4>
+        <P class="mrg">{{user3}}</P>
+      </div>
+      <ion-list>
+        <!-- <ion-menu-toggle>
+        <ion-item lines="none">
+          <ion-title class="fntsize"></ion-title>
+          
+          
+        </ion-item>
+        <ion-item>
+          <p></p>
+        </ion-item>
+      </ion-menu-toggle> -->
+      <ion-menu-toggle>
+        <ion-item routerLink="/tabs/tab1"  lines="none">
+          <ion-icon name="time-outline" slot="start"></ion-icon>
+          <ion-label>Dashboard </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle>
+        <ion-item routerLink="/tabs/tab2" lines="none">
+          <ion-icon name="people-outline" slot="start"></ion-icon>
+          <ion-label>Clients</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+<!-- routerLink="/tab4"-->
+      <ion-menu-toggle>
+        <ion-item routerLink="/tabs/tab3">
+          <ion-icon name="newspaper-outline" slot="start"></ion-icon>
+          <ion-label>Leads</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item routerLink="">
+          <ion-icon name="newspaper-outline" slot="start"></ion-icon>
+          <ion-label>Login</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+    
+  </ion-menu>
+
+  <ion-router-outlet id="m1"></ion-router-outlet>
+
+
+
+</ion-app>

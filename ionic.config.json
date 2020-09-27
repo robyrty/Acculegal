@@ -1,0 +1,7 @@
+{
+  "name": "Acculegal",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

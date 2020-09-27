@@ -1,0 +1,49 @@
+
+
+<ion-content class="background">
+
+  <ion-title class="bac">
+    <ion-img style="width:95%; height:95%;" src="assets/img/logo-dark.png" alt="Ionic logo"></ion-img>
+  </ion-title>
+
+  <div class="login-logo">
+
+
+    <p class="hel1">Hello .</p>
+    <P class="hel2">Welcome back</P>
+
+    <form #loginForm="ngForm" novalidate color="white" style="margin-top: 50px; margin-left: 10px; margin-right: 10px;">
+      <ion-list>
+        <ion-item class="border-color" style=" margin-right:20px; margin-left: 20px;">
+          <ion-label class="fnt" position="stacked" color="light">USERNAME</ion-label>
+          <ion-input style="color: antiquewhite;" [(ngModel)]="input1" #input name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off">
+          </ion-input>
+        </ion-item>
+
+        <ion-text color="danger">
+          <p hidden class="ion-padding-start">
+            Username is required
+          </p>
+        </ion-text>
+
+        <ion-item class="border-color" style="margin-top: 60px; margin-right:20px; margin-left: 20px;">
+          <ion-label class="fnt" position="stacked" color="light">PASSWORD</ion-label>
+          <ion-input [(ngModel)]="input2" name="password" type="password">
+          </ion-input>
+        </ion-item>
+
+        <ion-text color="danger">
+          <p hidden class="ion-padding-start">
+            Password is required
+          </p>
+        </ion-text>
+      </ion-list>
+
+      <p style="text-align-last: right; color: antiquewhite; font-size: 13px; margin-right: 20px; margin-top: 20px;">Forgot password?</p>
+
+
+      <ion-button size="default" style="margin-top: 90px; margin-left:20px; margin-right:20px;" (click)="login()" type="submit" expand="block" color="success">Login</ion-button>
+
+    </form>
+  </div>
+</ion-content>

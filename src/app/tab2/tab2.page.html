@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="back1">
+    
+    <ion-menu-button class="icon-color" slot="start" id="m1"></ion-menu-button>
+    <ion-title class="bac"> <ion-img style="width:60%; height:60%;" src="assets/img/logo-dark.png" alt="Ionic logo"></ion-img></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <iframe (onload)="presentAlert()"  src="https://acculegal-erp.area51.etherealwork.net" name="iframe_a" height="800px" width="100%" title="Iframe Example" (load)="dismissLoading()"></iframe>
+
+</ion-content>
+

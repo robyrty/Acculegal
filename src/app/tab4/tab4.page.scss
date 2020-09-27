@@ -1,0 +1,65 @@
+.login-logo {
+    padding: 20px 0;
+    min-height: 200px;
+    text-align: center;
+    background-color: #282e3f;
+    margin-top: 50px;
+  
+  }
+  
+  .login-logo img {
+    max-width: 500px;
+  }
+  
+  .list {
+    margin-bottom: 0;
+    
+  }
+  .background{
+    --ion-background-color: #282e3f
+  }
+  :root{
+    --ion-color-instagram: #5956d8;
+  }
+  .mrg{
+    margin-top:50px;
+  }
+  .bac{
+    margin-left:10% ;
+    margin-top: 15%;
+  }
+  
+  
+  
+  .border-color {
+    
+    --border-color:antiquewhite;
+    --border-width-right: 30px;
+    
+  }
+  .label-color{
+    --color: #4b4b4b;
+  }
+  .height{
+    --highlight-height:10px;
+  }
+  *{
+    font-family:'Roboto', sans-serif ;
+  }
+  .hel1{
+  color: antiquewhite;
+  text-align: left;
+  margin-left: 10%;
+  font-weight: 900;
+  font-size: 180%;
+  }
+  .hel2{
+    color: antiquewhite;
+    text-align: left;
+    margin-left: 10%;
+    font-weight: 900;
+    font-size: 180%; 
+  }
+  .fnt{
+    font-size: 90%;
+  }
