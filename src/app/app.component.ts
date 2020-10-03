@@ -4,7 +4,9 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Storage } from '@ionic/storage';
-import {OnInit}  from '@angular/core'
+import {OnInit}  from '@angular/core';
+import{Tab4Page} from 'src/app/tab4/tab4.page'
+import { Events } from 'src/app/events.service';
 
 @Component({
   selector: 'app-root',
@@ -15,24 +17,21 @@ export class AppComponent implements OnInit {
   user2:string;
   user3: string;
   access_token:string;
+  public username;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public apiService:ApiService,
-    public storage:Storage
+    public storage:Storage,
+    public events:Events
   ) {
     this.initializeApp();
- 
-    storage.get('user').then((val) => {
-      console.log('Your age_n is', val);
-      this.user2=val.name;
-      this.user3=val.email;
-    });
-    storage.get('access_token').then((val)=>{
-      console.log('tokenis',val);
-      this.access_token=val;
-    });
+    this.username="";
+    events.subscribe('user:login', user=>{
+      this.username=user.name;
+      console.log(this.username);
+    })   
   }
 
   initializeApp() {
@@ -42,7 +41,21 @@ export class AppComponent implements OnInit {
     });
   }
 
-  ngOnInit(){
+  ionViewWillEnter(){
     
+   this.storage.get('user').then((val) => {
+      console.log('Your age_n is', val);
+      this.user2=val.name;
+      this.user3=val.email;
+    });
+    this.storage.get('access_token').then((val)=>{
+      console.log('tokenis',val);
+      this.access_token=val;
+    });
+  
+  };
+
+  ngOnInit(){
+    this.ionViewWillEnter();
   }
 }

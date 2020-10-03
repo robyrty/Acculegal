@@ -4,8 +4,8 @@ import { Storage } from '@ionic/storage';
 import { ApiService } from '../api.service';
 import { HttpClient} from '@angular/common/http';
 import { Events } from '../events.service';
-import { Router } from '@angular/router';
-import{Tab3Page} from './../tab3/tab3.page'
+import { Router,ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-tab4',
   templateUrl: './tab4.page.html',
@@ -37,8 +37,8 @@ export class Tab4Page  {
 
 	async presentAlert() {
 		let alert = this.alertCtrl.create({
-			message: 'Low battery',
-			subHeader: '10% of battery remaining',
+			message: 'Please Check the credentials',
+			
 			buttons: ['Dismiss']
 		});
 		(await alert).present();
@@ -103,11 +103,12 @@ export class Tab4Page  {
           //   alert("Successful")
           // }
           // this.user = data['user'];
-				// Clear storage 
+        // Clear storage ,
+        
 				this.storage.remove('user').then(res => {
         // 	// Set User
                   //  alert("ucess");
-					this.storage.set('user', data['user']).then(val => {
+					this.storage.set('user', data).then(val => {
             // Hide Spinner
             
 						loading.dismiss();
@@ -120,16 +121,23 @@ export class Tab4Page  {
                                
 						this.router.navigate(['/app/tabs/tab2'], {
 							replaceUrl: true,
-							skipLocationChange: true
+              skipLocationChange: true,
+              
 						});
         
         })
         });
        
         
-      }
+      
+    },
+      error=>{
+        loading.dismiss();
+        this.presentAlert();
+      }         
     
     );
+    
     
   
   
