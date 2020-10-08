@@ -7,6 +7,7 @@
         <ion-title>
           <ion-img style="width:60%; height:60%;" src="assets/img/logo-dark.png" alt="Ionic logo"></ion-img>
         </ion-title>
+        
       </ion-toolbar>
     </ion-header>
     <ion-content>
@@ -25,32 +26,23 @@
           <p></p>
         </ion-item>
       </ion-menu-toggle> -->
-      <ion-menu-toggle>
-        <ion-item routerLink="app/tabs/tab1"  lines="none">
-          <ion-icon name="time-outline" slot="start"></ion-icon>
-          <ion-label>Dashboard </ion-label>
-        </ion-item>
-      </ion-menu-toggle>
 
-      <ion-menu-toggle>
-        <ion-item routerLink="app/tabs/tab2" lines="none">
-          <ion-icon name="people-outline" slot="start"></ion-icon>
-          <ion-label>Clients</ion-label>
-        </ion-item>
-      </ion-menu-toggle>
-<!-- routerLink="/tab4"-->
-      <ion-menu-toggle>
-        <ion-item routerLink="app/tabs/tab3">
-          <ion-icon name="newspaper-outline" slot="start"></ion-icon>
-          <ion-label>Leads</ion-label>
-        </ion-item>
-      </ion-menu-toggle>
       <ion-menu-toggle>
         <ion-item routerLink="">
           <ion-icon name="newspaper-outline" slot="start"></ion-icon>
           <ion-label>Login</ion-label>
         </ion-item>
       </ion-menu-toggle>
+      <ion-list  *ngFor ="let item of modulesitem" >
+        <ion-menu-toggle>
+        <ion-item (click)="openDetailsWithQueryParams(item)"   >{{item.module}}</ion-item>
+        <ion-item *ngFor="let module of item.subModules">
+          <ion-item>
+            {{module.module}}
+          </ion-item>
+          </ion-item>
+        </ion-menu-toggle>
+        </ion-list>
       </ion-list>
     </ion-content>
     

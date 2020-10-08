@@ -17,6 +17,7 @@ export class Tab4Page  {
   input1:string ="";
   input2:string ="";
   user:any;
+  modules:any;
 
      
 
@@ -28,7 +29,8 @@ export class Tab4Page  {
     public apiService:ApiService,
     public http:HttpClient,
     public events:Events,
-    public router:Router
+    public router:Router,
+    
   ) { }
   onClick() {
 		console.log(this.input1);
@@ -112,23 +114,23 @@ export class Tab4Page  {
             // Hide Spinner
             
 						loading.dismiss();
-            this.user  = data['user'];
             
+            
+            this.user  = data;
 						// Publish Event for Menu-refresh
-						
+					
             this.events.publish('user:login', this.user);
             this.user.login= true;
-                               
+            // this.navCtrl.navigateRoot('app')  ;            
 						this.router.navigate(['/app/tabs/tab2'], {
 							replaceUrl: true,
               skipLocationChange: true,
-              
 						});
         
         })
         });
        
-        
+        this.navCtrl.navigateRoot
       
     },
       error=>{

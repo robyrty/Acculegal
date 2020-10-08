@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthguardGuard } from './authguard.guard';
+import { Tab4Page } from './tab4/tab4.page';
 import { TabsPage } from './tabs/tabs.page';
 
 
 const routes: Routes = [
   {
     path: '',
-  //   loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
-  loadChildren: () => import('./tab4/tab4.module').then(m => m.Tab4PageModule)
-   
-   
-   
+  
+    //   loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
+    loadChildren: () => import('./tab4/tab4.module').then(m => m.Tab4PageModule)   
   },
   // {
   //   path: 'tabs',
@@ -30,8 +30,15 @@ const routes: Routes = [
   //     },
     {
       path: 'app',
+      
       loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
-    }]
+      canActivate:[AuthguardGuard],            
+    },
+  {
+    path: 'iframe',
+    loadChildren: () => import('./iframe/iframe.module').then( m => m.IframePageModule)
+  },
+  ]
   // },
   // {
   //   path: '',

@@ -1,14 +1,12 @@
-<ion-header [translucent]="true">
-  <ion-toolbar class="back1">
+<ion-header>
+  <ion-toolbar class="back">
     
     <ion-menu-button class="icon-color" slot="start" id="m1"></ion-menu-button>
     <ion-title class="bac"> <ion-img style="width:60%; height:60%;" src="assets/img/logo-dark.png" alt="Ionic logo"></ion-img></ion-title>
+    <ion-button color="secondary" routerLink="/app/tabs/tab2">back</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
-  <iframe id="myiframe"   name="iframe_a" height="800px" width="100%" title="Iframe Example" scrolling="no" style="overflow:hidden;" ></iframe>
-
+  <iframe id="myiframe" name="iframe_a" height="2000px" width="100%" title="Iframe Example" scrolling="no" style="overflow:hidden;" ></iframe>
 </ion-content>
-

@@ -7,6 +7,7 @@ import { Storage } from '@ionic/storage';
 import {OnInit}  from '@angular/core';
 import{Tab4Page} from 'src/app/tab4/tab4.page'
 import { Events } from 'src/app/events.service';
+import { NavigationExtras,Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -17,21 +18,30 @@ export class AppComponent implements OnInit {
   user2:string;
   user3: string;
   access_token:string;
+  modulesitem:any;
+  submodule:any;
   public username;
+  item:any;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public apiService:ApiService,
     public storage:Storage,
-    public events:Events
+    public events:Events,
+    public router:Router
   ) {
     this.initializeApp();
     this.username="";
-    events.subscribe('user:login', user=>{
-      this.username=user.name;
-      console.log(this.username);
-    })   
+    // events.subscribe('user:login', user=>{
+    //   this.username=user['user'].name;
+    //   this.modulesitem=user['modules'];
+    //   this.submodule=user['subModules'];
+    //   console.log("uername:",this.username);
+    //   console.log("modules",this.modulesitem,this.submodule);
+    // }) ;
+
+      
   }
 
   initializeApp() {
@@ -45,15 +55,29 @@ export class AppComponent implements OnInit {
     
    this.storage.get('user').then((val) => {
       console.log('Your age_n is', val);
-      this.user2=val.name;
-      this.user3=val.email;
+      this.modulesitem=val['modules'];
+      this.submodule=val['subModules']
+      
+      console.log('modules',this.modulesitem)
     });
     this.storage.get('access_token').then((val)=>{
       console.log('tokenis',val);
       this.access_token=val;
     });
   
+
   };
+
+  openDetailsWithQueryParams(item : any) {
+    console.log(item)
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        item: JSON.stringify(item)
+      }
+    };
+    this.router.navigate(['iframe'], navigationExtras);
+    console.log('hello')
+  }
 
   ngOnInit(){
     this.ionViewWillEnter();
